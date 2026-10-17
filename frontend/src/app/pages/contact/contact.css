@@ -1,0 +1,109 @@
+.contact {
+  --h: 773px;
+  background-image: url('/media/img/30f4b3_999bd101fde646e9a00d9a29a65f0226.jpg');
+}
+
+.card {
+  left: 255px;
+  top: 10px;
+  width: 469px;
+  height: 335px;
+}
+
+.hotspot {
+  position: absolute;
+  left: 335px;
+  width: 310px;
+  height: 24px;
+}
+
+.phone {
+  top: 220px;
+}
+
+.mail {
+  top: 246px;
+}
+
+.form {
+  position: absolute;
+  left: 264px;
+  top: 316px;
+  width: 452px;
+  height: 429px;
+}
+
+.lbl {
+  position: absolute;
+  font-family: var(--font-title);
+  font-size: 14px;
+  color: var(--cream);
+}
+
+.req {
+  color: var(--cream);
+}
+
+.field {
+  position: absolute;
+  height: 37px;
+  padding: 3px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 241, 231, 0.26);
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+}
+
+.field:focus {
+  box-shadow: inset 0 0 0 1px var(--cream);
+}
+
+.field.bad {
+  box-shadow: inset 0 0 0 1px #df3131;
+}
+
+.area {
+  height: 67px;
+  resize: none;
+  padding-top: 8px;
+}
+
+.send {
+  position: absolute;
+  left: 15px;
+  top: 356px;
+  width: 140px;
+  height: 36px;
+  border: 0;
+  border-radius: 0;
+  background: var(--gold);
+  color: var(--cream);
+  font-family: var(--font-title);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.send:hover {
+  opacity: 0.85;
+}
+
+.send:disabled {
+  cursor: progress;
+}
+
+.feedback {
+  position: absolute;
+  left: 15px;
+  top: 396px;
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 14px;
+  color: var(--gold);
+}
+
+.feedback.err {
+  color: #df3131;
+}

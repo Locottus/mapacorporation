@@ -1,0 +1,51 @@
+<section class="strip hero" aria-labelledby="home-title">
+  <div class="stage">
+    <h1 id="home-title" class="sr-only">Expertos en procesos migratorios</h1>
+    <img
+      class="abs info"
+      [src]="media + '30f4b3_3fc14255a97644a89559dcadb40a3703.png'"
+      alt="Trabajamos con la misión de facilitar los procesos migratorios para que las personas puedan cumplir sus sueños de viajar y conectar con nuevas oportunidades. Nos esforzamos por ser una empresa líder en asesoría migratoria, ofreciendo un servicio confiable, personalizado y profesional que brinde tranquilidad y confianza a nuestros clientes."
+    />
+    <img
+      class="abs experts"
+      [src]="media + '30f4b3_942f17a9f2554dc193ff387b0940c673.png'"
+      alt="Expertos en procesos migratorios"
+    />
+    <img
+      class="abs person"
+      [src]="media + '30f4b3_373df7185d20402ea5df7c4b8296306e.png'"
+      alt="Asesora de MAPA Asesorías Migratorias"
+    />
+  </div>
+</section>
+
+<section class="strip tagline">
+  <div class="stage">
+    <img
+      class="abs tagline-img"
+      [src]="media + '30f4b3_ea244392ea944f18981c584d92f8c4d2.png'"
+      alt="Te acompañamos paso a paso en tu proceso migratorio, con confianza, claridad y experiencia."
+    />
+  </div>
+</section>
+
+<section class="strip reviews" aria-labelledby="reviews-title">
+  <div class="stage">
+    <h2 id="reviews-title" class="sr-only">Testimonios de nuestros clientes</h2>
+    <img
+      class="abs highlights"
+      [src]="media + '30f4b3_3f9747d5a1a546dfbfc42b4f3715afee.png'"
+      alt="Testimonios de nuestros clientes. En MAPA, cada proceso es único y cada historia nos inspira. Conoce la experiencia de quienes confiaron en nosotros para alcanzar su objetivo migratorio."
+    />
+    @for (review of reviews; track review.img; let i = $index) {
+      <img
+        class="abs review"
+        [style.left.px]="left(i)"
+        [style.top.px]="top(i)"
+        [src]="media + review.img"
+        [alt]="review.text + ' — ' + review.author"
+        loading="lazy"
+      />
+    }
+  </div>
+</section>

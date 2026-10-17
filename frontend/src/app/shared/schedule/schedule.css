@@ -1,0 +1,11 @@
+.schedule {
+  --h: 250px;
+  background: var(--ink);
+}
+
+.schedule-img {
+  left: 113px;
+  top: -65px;
+  width: 754px;
+  height: 380px;
+}

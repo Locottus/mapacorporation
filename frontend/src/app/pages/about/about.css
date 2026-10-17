@@ -1,0 +1,42 @@
+.intro {
+  --h: 329px;
+  background-image: url('/media/img/30f4b3_999bd101fde646e9a00d9a29a65f0226.jpg');
+}
+
+.intro-img {
+  left: 198px;
+  top: 64px;
+  width: 584px;
+  height: 200px;
+}
+
+.mission {
+  --h: 442px;
+  background-image: url('/media/img/30f4b3_62cf735f77b04e4096b6af29c4cbb1fe.jpg');
+}
+
+.mission-img {
+  left: 80px;
+  top: 62px;
+  width: 820px;
+  height: 318px;
+}
+
+.values {
+  --h: 353px;
+  background-image: url('/media/img/30f4b3_999bd101fde646e9a00d9a29a65f0226.jpg');
+}
+
+.values-img {
+  left: 113px;
+  top: 51px;
+  width: 753px;
+  height: 145px;
+}
+
+.values-img2 {
+  left: 47px;
+  top: 196px;
+  width: 485px;
+  height: 145px;
+}

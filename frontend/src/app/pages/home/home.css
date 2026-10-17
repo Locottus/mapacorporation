@@ -1,0 +1,54 @@
+.hero {
+  --h: 488px;
+  background-image: url('/media/img/30f4b3_d964f88d12774ca9bb6bce3dae3808d5.jpg');
+}
+
+.info {
+  left: 358px;
+  top: 183px;
+  width: 586px;
+  height: 218px;
+}
+
+.experts {
+  left: 296px;
+  top: 23px;
+  width: 385px;
+  height: 233px;
+}
+
+.person {
+  left: 16px;
+  top: -56px;
+  width: 377px;
+  height: 599px;
+}
+
+.tagline {
+  --h: 152px;
+  background-image: url('/media/img/30f4b3_999bd101fde646e9a00d9a29a65f0226.jpg');
+}
+
+.tagline-img {
+  left: 42px;
+  top: 38px;
+  width: 896px;
+  height: 75px;
+}
+
+.reviews {
+  --h: 1068px;
+  background-image: url('/media/img/30f4b3_62cf735f77b04e4096b6af29c4cbb1fe.jpg');
+}
+
+.highlights {
+  left: 8px;
+  top: 68px;
+  width: 735px;
+  height: 139px;
+}
+
+.review {
+  width: 469px;
+  height: 120px;
+}

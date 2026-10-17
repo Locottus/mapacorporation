@@ -1,0 +1,22 @@
+@switch (mode()) {
+  @case ('mp4') {
+    <video class="media" [src]="video().src" [poster]="video().poster" controls autoplay playsinline></video>
+  }
+  @case ('youtube') {
+    <iframe
+      class="media"
+      [src]="embed()"
+      [title]="video().title"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  }
+  @default {
+    <div class="media external" [style.background-image]="'url(' + video().poster + ')'">
+      <div class="notice">
+        <p>Este video está alojado en Wix Video y no tiene enlace de YouTube.</p>
+        <a [href]="originalUrl()" target="_blank" rel="noopener">Ver en el sitio original ↗</a>
+      </div>
+    </div>
+  }
+}

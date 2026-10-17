@@ -1,0 +1,15 @@
+<h1 class="sr-only">Servicios</h1>
+
+<section class="strip lead">
+  <div class="stage">
+    <img class="abs card lead-card" [src]="media + first" alt="Servicio de asesoría migratoria 1" />
+  </div>
+</section>
+
+@for (item of items; track item.img) {
+  <section class="strip item">
+    <div class="stage">
+      <img class="abs card item-card" [src]="media + item.img" [alt]="item.alt" loading="lazy" />
+    </div>
+  </section>
+}

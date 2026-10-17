@@ -1,0 +1,54 @@
+<h1 class="sr-only">Contáctanos</h1>
+
+<section class="strip contact">
+  <div class="stage">
+    <img
+      class="abs card"
+      src="media/img/30f4b3_900bbf9bab1649c29a1eb28e76792c78.png"
+      alt="Contáctanos. Teléfono +502 5715 2797. Correo marketing.consultores@mapaasesorias.com"
+    />
+    <a class="hotspot phone" href="tel:+50257152797" aria-label="Llamar al +502 5715 2797"></a>
+    <a
+      class="hotspot mail"
+      href="mailto:marketing.consultores@mapaasesorias.com"
+      aria-label="Escribir a marketing.consultores@mapaasesorias.com"
+    ></a>
+
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label class="lbl" style="left: 15px; top: 20px" for="nombre">Nombre</label>
+      <input id="nombre" class="field" style="left: 15px; top: 43px; width: 200px" formControlName="nombre" autocomplete="given-name" />
+
+      <label class="lbl" style="left: 235px; top: 20px" for="apellido">Apellido</label>
+      <input id="apellido" class="field" style="left: 235px; top: 43px; width: 200px" formControlName="apellido" autocomplete="family-name" />
+
+      <label class="lbl" style="left: 15px; top: 92px" for="telefono">Teléfono</label>
+      <input id="telefono" class="field" style="left: 15px; top: 116px; width: 417px" type="tel" formControlName="telefono" autocomplete="tel" />
+
+      <label class="lbl" style="left: 15px; top: 164px" for="email">Email <span class="req">*</span></label>
+      <input
+        id="email"
+        class="field"
+        style="left: 15px; top: 187px; width: 417px"
+        type="email"
+        formControlName="email"
+        autocomplete="email"
+        required
+        [class.bad]="invalid('email')"
+        [attr.aria-invalid]="invalid('email')"
+      />
+
+      <label class="lbl" style="left: 15px; top: 247px" for="mensaje">Mensaje</label>
+      <textarea id="mensaje" class="field area" style="left: 15px; top: 270px; width: 417px" formControlName="mensaje"></textarea>
+
+      <button class="send" type="submit" [disabled]="state() === 'sending'">
+        {{ state() === 'sending' ? 'Enviando…' : 'Enviar' }}
+      </button>
+
+      @if (state() === 'sent' || state() === 'error') {
+        <p class="feedback" [class.err]="state() === 'error'" role="status">{{ feedback() }}</p>
+      }
+    </form>
+  </div>
+</section>
+
+<app-schedule />

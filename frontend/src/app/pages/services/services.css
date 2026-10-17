@@ -1,0 +1,23 @@
+.lead {
+  --h: 539px;
+  background-image: url('/media/img/30f4b3_50942fa559244a1b805606db87d80dcd.jpg');
+}
+
+.item {
+  --h: 394px;
+  background-image: url('/media/img/30f4b3_62cf735f77b04e4096b6af29c4cbb1fe.jpg');
+}
+
+.card {
+  left: 90px;
+  width: 800px;
+  height: 392px;
+}
+
+.lead-card {
+  top: 73px;
+}
+
+.item-card {
+  top: -20px;
+}

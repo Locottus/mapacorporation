@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer {
+  --h: 162px;
+  background: linear-gradient(90deg, #101d42 0%, #13204a 50%, #162142 100%);
+}
+
+.copy {
+  position: absolute;
+  left: 0;
+  top: 23px;
+  width: 980px;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 48px;
+  letter-spacing: -0.3px;
+  text-align: center;
+}
+
+.copy span {
+  display: block;
+}

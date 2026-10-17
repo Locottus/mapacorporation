@@ -1,0 +1,50 @@
+<header class="site-header strip">
+  <img class="header-bg" src="media/img/30f4b3_019f0f86497343e2a42e52d6c33f3428.jpg" alt="" aria-hidden="true" />
+  <div class="stage">
+    <a class="logo" routerLink="/" (click)="close()" aria-label="MAPA Asesorías Migratorias - Inicio">
+      <img src="media/img/30f4b3_15d9150129bb40ddb8d06fa212458c9f.png" alt="Logotipo MAPA Asesorías Migratorias" width="327" height="109" />
+    </a>
+    <nav class="menu" aria-label="Sitio">
+      <ul>
+        @for (item of menu; track item.path; let i = $index) {
+          <li [style.width.px]="widths[i]">
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+              >{{ item.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <button
+    type="button"
+    class="menu-toggle"
+    [class.is-open]="open()"
+    [attr.aria-expanded]="open()"
+    aria-controls="mobile-menu"
+    aria-label="Abrir menú"
+    (click)="toggle()"
+  >
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+@if (open()) {
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Sitio (móvil)">
+    @for (item of menu; track item.path) {
+      <a
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="close()"
+        >{{ item.label }}</a
+      >
+    }
+  </nav>
+}

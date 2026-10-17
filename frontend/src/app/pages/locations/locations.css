@@ -1,0 +1,43 @@
+.ads {
+  --h: 330px;
+  background-image: url('/media/img/30f4b3_50942fa559244a1b805606db87d80dcd.jpg');
+}
+
+.ads-img {
+  left: 121px;
+  top: -55px;
+  width: 793px;
+  height: 441px;
+}
+
+.offices-a {
+  --h: 415px;
+  background-image: url('/media/img/30f4b3_3413a9625be145228ef9fe284eea04b4.jpg');
+}
+
+.offices-b {
+  --h: 404px;
+  background-image: url('/media/img/30f4b3_50942fa559244a1b805606db87d80dcd.jpg');
+}
+
+.office {
+  left: 190px;
+  width: 600px;
+  height: 159px;
+}
+
+.top-a {
+  top: 43px;
+}
+
+.bottom-a {
+  top: 229px;
+}
+
+.top-b {
+  top: 38px;
+}
+
+.bottom-b {
+  top: 211px;
+}

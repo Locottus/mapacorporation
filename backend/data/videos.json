@@ -1,0 +1,170 @@
+{
+  "channels": {
+    "testimonios": {
+      "id": "testimonios",
+      "title": "Testimonios de nuestros clientes",
+      "originalUrl": "https://www.mapacorporation.com/testimonios"
+    },
+    "descubre-usa": {
+      "id": "descubre-usa",
+      "title": "Descubramos USA",
+      "originalUrl": "https://www.mapacorporation.com/copia-de-contacto"
+    }
+  },
+  "videos": [
+    {
+      "id": "30f4b3_e69e6e84feb449179324777b6af7861d",
+      "channel": "testimonios",
+      "title": "Pensé que nunca más volvería a tener una visa…",
+      "description": "",
+      "durationSec": 93,
+      "poster": "30f4b3_e69e6e84feb449179324777b6af7861df000.jpg",
+      "categories": ["Testimonios"],
+      "tags": ["visa usa", "visa americana", "embajada estos unidos"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_1b19145105944c429f8eecbe688965c2",
+      "channel": "descubre-usa",
+      "title": "visas y migración legal",
+      "description": "Hablamos sobre visas y migración legal ✈️🛂¿Qué se puede hacer? ¿Qué NO? ❌\n¿Mitos o realidades? ¡Aquí nos enteramos!",
+      "durationSec": 57,
+      "poster": "30f4b3_1b19145105944c429f8eecbe688965c2f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_53367de428c2493e8b6f731c1abd84f5",
+      "channel": "descubre-usa",
+      "title": "Miami Vibes",
+      "description": "¡Esto esperan nuestros amigos de nuestra experiencia en MIAMI!",
+      "durationSec": 21,
+      "poster": "30f4b3_53367de428c2493e8b6f731c1abd84f5f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_7c530873d7a44897a7e880d935d20e2d",
+      "channel": "descubre-usa",
+      "title": "El viaje de tus sueños",
+      "description": "Un viaje que todos soñamos hacer, Miami nos espera. 🎉",
+      "durationSec": 8,
+      "poster": "30f4b3_7c530873d7a44897a7e880d935d20e2df002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_89ef5e3251034f57bd40a9aa956f6dd5",
+      "channel": "descubre-usa",
+      "title": "Verano en Santa Monica",
+      "description": "¡Estamos en verano! Acompáñanos a conocer Santa Mónica ⛱️",
+      "durationSec": 30,
+      "poster": "30f4b3_89ef5e3251034f57bd40a9aa956f6dd5f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_2a5959c8f9e54aba8911b84adce9a8d1",
+      "channel": "descubre-usa",
+      "title": "Hollywood",
+      "description": "¡Tu historia también puede brillar en Hollywood! 🇺🇸 ¿Quién no ha soñado con llegar hasta aquí? Cuéntanos en los comentarios y comencemos juntos este emocionante viaje.",
+      "durationSec": 21,
+      "poster": "30f4b3_2a5959c8f9e54aba8911b84adce9a8d1f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_9c8e503ef67a42efb21491b329dfc16c",
+      "channel": "descubre-usa",
+      "title": "In n out",
+      "description": "Probamos las famosas Hamburgesas @innout nuestra reacción lo dice todo 🤤",
+      "durationSec": 29,
+      "poster": "30f4b3_9c8e503ef67a42efb21491b329dfc16cf002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_473c17bd55bf4c0b95b5e690ad7ffc29",
+      "channel": "descubre-usa",
+      "title": "Santa Monica",
+      "description": "Santa Mónica es un lugar donde encuentras muchas cosas por hacer 🤩☀️",
+      "durationSec": 18,
+      "poster": "30f4b3_473c17bd55bf4c0b95b5e690ad7ffc29f000.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_2593709ae0014e9b80c0b0a14df36267",
+      "channel": "descubre-usa",
+      "title": "Las Vegas",
+      "description": "https://www.instagram.com/reel/DGtZA72xy--/",
+      "durationSec": 12,
+      "poster": "30f4b3_2593709ae0014e9b80c0b0a14df36267f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_76e9cbdf2823413e8b79988eae21a949",
+      "channel": "descubre-usa",
+      "title": "Big Bear love",
+      "description": "¡Porque vivir tus sueños con el amor de tu vida es indescriptible!",
+      "durationSec": 20,
+      "poster": "30f4b3_76e9cbdf2823413e8b79988eae21a949f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_c2b056b7bc804eadb5a3d9686faec036",
+      "channel": "descubre-usa",
+      "title": "Paseo de la Fama",
+      "description": "Si pudieras tomarte una foto con cualquier estrella del Paseo de la Fama… ¿quién sería? 👀👇",
+      "durationSec": 19,
+      "poster": "30f4b3_c2b056b7bc804eadb5a3d9686faec036f000.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_9598316e31104ed889b1e1da06d1ed82",
+      "channel": "descubre-usa",
+      "title": "Big Beard, California",
+      "description": "¡La mejor etapa, no te la pierdas! Inicia tu proceso migratorio con el amor de tu vida.",
+      "durationSec": 19,
+      "poster": "30f4b3_9598316e31104ed889b1e1da06d1ed82f002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_3de1736636a9422aa7fae01d2e3bbb3c",
+      "channel": "descubre-usa",
+      "title": "Nueva York",
+      "description": "Empezar tu proceso de visa te acerca más a conocer esta increíble ciudad!",
+      "durationSec": 33,
+      "poster": "30f4b3_3de1736636a9422aa7fae01d2e3bbb3cf002.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    },
+    {
+      "id": "30f4b3_00d8b465de8b43848ce0dd6fbc9e2501",
+      "channel": "descubre-usa",
+      "title": "Wall Street",
+      "description": "¿Sabías que en Wall Street hay un toro que simboliza suerte, fuerza y el poder financiero? 🐂✨\n\nSi estás en Nueva York, ¡no te lo puedes perder! Tómate una foto con este ícono y siente la energía de la ciudad que nunca duerme. 💪📸 Y si quieres conocerlo, empieza tu proceso migratorio con Mapa.",
+      "durationSec": 24,
+      "poster": "30f4b3_00d8b465de8b43848ce0dd6fbc9e2501f001.jpg",
+      "categories": ["Estados Unidos"],
+      "tags": ["visa usa"],
+      "youtubeUrl": null
+    }
+  ]
+}
