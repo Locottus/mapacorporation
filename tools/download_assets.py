@@ -1,19 +1,17 @@
-"""Descarga imagenes y videos del sitio original (uso autorizado por el propietario).
+"""Descarga las imagenes del sitio original (uso autorizado por el propietario).
 
 Uso: python tools/download_assets.py
-Genera: frontend/public/media/img/* y frontend/public/media/video/*.mp4
-Requiere: pip install imageio-ffmpeg
+Genera: frontend/public/media/img/* (incluye los posters de los videos)
+Requiere: pip install pillow
+
+Los videos NO se descargan: Wix Video los entrega por HLS con un token firmado
+y temporal. Ver MANUAL.md, seccion "Videos", para agregarlos (MP4 o YouTube).
 """
-import json
 import os
-import re
-import subprocess
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG_DIR = os.path.join(ROOT, "frontend", "public", "media", "img")
-VID_DIR = os.path.join(ROOT, "frontend", "public", "media", "video")
-SITE = "https://www.mapacorporation.com"
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130 Safari/537.36"}
 
 IMAGES = [
@@ -57,6 +55,12 @@ IMAGES = [
     "30f4b3_62ce40e387dc408fa36edc85a1dd7095~mv2.png",
 ]
 
+# Recortes (x0, y0, x1, y1) sobre la imagen original, tomados de las URLs "crop" de Wix
+CROPS = {
+    "30f4b3_3fc14255a97644a89559dcadb40a3703~mv2.png": (125, 292, 1308, 733),
+    "30f4b3_14d4b01a9fa9419cb1bc6bdc00ccbc91~mv2.png": (0, 138, 1564, 768),
+}
+
 # id de video -> sufijo del poster
 VIDEOS = {
     "30f4b3_e69e6e84feb449179324777b6af7861d": "f000",
@@ -97,45 +101,20 @@ def download_images():
         print("img", local_name(name))
 
 
-def find_stream_urls():
-    urls = {}
-    pattern = re.compile(
-        r"https://[a-z\-]*repackager\.wixmp\.com/video\.wixstatic\.com/video/(30f4b3_[0-9a-f]{32})/"
-        r"[^\"?]*?/mp4/file\.mp4\.urlset/master\.m3u8\?token=[A-Za-z0-9._\-]+"
-    )
-    for path in ("/testimonios", "/copia-de-contacto"):
-        html = get(SITE + path).decode("utf-8", "replace").replace("\\/", "/")
-        for m in pattern.finditer(html):
-            urls.setdefault(m.group(1), m.group(0))
-    return urls
+def apply_crops():
+    """Replica los recortes "crop" que Wix aplica en el sitio original."""
+    from PIL import Image
 
-
-def download_videos():
-    import imageio_ffmpeg
-
-    ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
-    os.makedirs(VID_DIR, exist_ok=True)
-    urls = find_stream_urls()
-    missing = []
-    for vid in VIDEOS:
-        target = os.path.join(VID_DIR, f"{vid}.mp4")
-        if os.path.exists(target):
-            continue
-        url = urls.get(vid)
-        if not url:
-            missing.append(vid)
-            continue
-        cmd = [ffmpeg, "-loglevel", "error", "-y", "-user_agent", UA["User-Agent"], "-i", url,
-               "-map", "0:p:0?", "-c", "copy", "-bsf:a", "aac_adtstoasc", "-movflags", "+faststart", target]
-        res = subprocess.run(cmd, capture_output=True, text=True)
-        if res.returncode != 0:
-            missing.append(vid)
-            print("video FAIL", vid, res.stderr[-300:])
-        else:
-            print("video", vid)
-    return missing
+    for name, box in CROPS.items():
+        target = os.path.join(IMG_DIR, local_name(name))
+        with Image.open(target) as im:
+            if im.size[1] <= box[3] - box[1]:
+                continue
+            cropped = im.crop(box)
+        cropped.save(target)
+        print("crop", local_name(name))
 
 
 if __name__ == "__main__":
     download_images()
-    print(json.dumps({"missing_videos": download_videos()}))
+    apply_crops()

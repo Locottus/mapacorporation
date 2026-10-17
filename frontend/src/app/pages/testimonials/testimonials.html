@@ -1,0 +1,58 @@
+<section class="strip testimonials">
+  <div class="stage">
+    <div class="widget">
+      <header class="bar">
+        <h1 class="channel-title">{{ channel()?.title ?? 'Testimonios de nuestros clientes' }}</h1>
+        <div class="icons" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1Z" /></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z" /></svg>
+        </div>
+      </header>
+
+      <div class="main">
+        @if (selected(); as video) {
+          @if (playing()) {
+            <app-video-player [video]="video" [originalUrl]="channel()?.originalUrl ?? 'https://www.mapacorporation.com/testimonios'" />
+          } @else {
+            <div class="poster" [style.background-image]="'url(' + video.poster + ')'">
+              <div class="shade"></div>
+              <h2 class="video-title">{{ video.title }}</h2>
+              <button type="button" class="play" (click)="play()">
+                <svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z" /></svg>
+                Play Video
+              </button>
+            </div>
+          }
+        } @else if (error()) {
+          <p class="empty">No se pudieron cargar los videos. ¿Está levantado el backend?</p>
+        }
+      </div>
+
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z" /></svg>
+        <input type="search" placeholder="Search video..." aria-label="Search video" (input)="onSearch($event)" />
+      </div>
+
+      <ul class="list">
+        @for (video of filtered(); track video.id) {
+          <li>
+            <button type="button" class="item" (click)="select(video)" [attr.aria-label]="'Reproducir ' + video.title">
+              <span class="thumb" [style.background-image]="'url(' + video.poster + ')'">
+                @if (playing() && video === selected()) {
+                  <span class="now">Now Playing</span>
+                } @else {
+                  <span class="dur">{{ video.duration }}</span>
+                }
+              </span>
+              <span class="item-title">{{ video.title }}</span>
+            </button>
+          </li>
+        } @empty {
+          @if (videos().length) {
+            <li class="none">No se encontraron videos</li>
+          }
+        }
+      </ul>
+    </div>
+  </div>
+</section>

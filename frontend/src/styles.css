@@ -61,6 +61,9 @@ a {
   max-width: none;
   pointer-events: none;
   user-select: none;
+  /* Equivale al modo "fill" (al_c) de Wix Media */
+  object-fit: cover;
+  object-position: center;
 }
 
 .sr-only {

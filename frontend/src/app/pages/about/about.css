@@ -25,6 +25,7 @@
 .values {
   --h: 353px;
   background-image: url('/media/img/30f4b3_999bd101fde646e9a00d9a29a65f0226.jpg');
+  background-position: center bottom;
 }
 
 .values-img {

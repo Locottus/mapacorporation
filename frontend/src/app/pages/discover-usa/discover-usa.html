@@ -1,0 +1,55 @@
+<section class="strip usa">
+  <div class="band">
+    <header class="bar">
+      <h1 class="channel-title">
+        <span class="dots" aria-hidden="true">⋮</span>
+        {{ channel()?.title ?? 'Descubramos USA' }}
+      </h1>
+      <label class="sr-only" for="usa-cat">Categoría</label>
+      <select id="usa-cat" class="cat" [value]="category()" (change)="onCategory($event)">
+        @for (cat of categories(); track cat) {
+          <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+    </header>
+
+    <div class="carousel">
+      <button type="button" class="arrow prev" aria-label="Anterior" (click)="scroll(-1)">‹</button>
+      <ul class="track" #track>
+        @for (video of filtered(); track video.id) {
+          <li class="card">
+            <button type="button" class="thumb" (click)="open(video)" [attr.aria-label]="'Reproducir ' + video.title"
+              [style.background-image]="'url(' + video.poster + ')'">
+              <span class="circle" aria-hidden="true">
+                <svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" /></svg>
+              </span>
+              <span class="dur">{{ video.duration }}</span>
+            </button>
+            <h2 class="title">{{ video.title }}</h2>
+            <p class="desc">{{ video.description }}</p>
+          </li>
+        } @empty {
+          @if (error()) {
+            <li class="empty">No se pudieron cargar los videos. ¿Está levantado el backend?</li>
+          }
+        }
+      </ul>
+      <button type="button" class="arrow next" aria-label="Siguiente" (click)="scroll(1)">›</button>
+    </div>
+  </div>
+</section>
+
+<app-schedule />
+
+@if (active(); as video) {
+  <div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="video.title" (click)="close()">
+    <div class="dialog" (click)="$event.stopPropagation()">
+      <button type="button" class="x" aria-label="Cerrar" (click)="close()">×</button>
+      <div class="frame">
+        <app-video-player [video]="video" [originalUrl]="channel()?.originalUrl ?? 'https://www.mapacorporation.com/'" />
+      </div>
+      <h2 class="modal-title">{{ video.title }}</h2>
+      <p class="modal-desc">{{ video.description }}</p>
+    </div>
+  </div>
+}
