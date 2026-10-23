@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-import { App, computeScale } from './app';
+import { App } from './app';
 import { MENU, routes } from './app.routes';
 
 describe('App', () => {
@@ -16,27 +16,12 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.skip-link')?.getAttribute('href')).toBe('#main');
     expect(el.querySelector('app-header')).toBeTruthy();
     expect(el.querySelector('main router-outlet')).toBeTruthy();
     expect(el.querySelector('app-footer')).toBeTruthy();
   });
 
-  it('define la variable --scale', async () => {
-    const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    expect(document.documentElement.style.getPropertyValue('--scale')).not.toBe('');
-  });
-});
-
-describe('computeScale', () => {
-  it('no escala en escritorio', () => {
-    expect(computeScale(1280)).toBe(1);
-    expect(computeScale(0)).toBe(1);
-  });
-
-  it('reduce proporcionalmente en pantallas angostas', () => {
-    expect(computeScale(490)).toBe(0.5);
-  });
 });
 
 describe('routes', () => {

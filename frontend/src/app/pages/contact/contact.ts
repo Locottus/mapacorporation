@@ -19,10 +19,10 @@ export class Contact {
   protected readonly feedback = signal('');
 
   readonly form = this.fb.nonNullable.group({
-    nombre: ['', [Validators.maxLength(80)]],
-    apellido: ['', [Validators.maxLength(80)]],
+    nombre: ['', [Validators.maxLength(100)]],
+    apellido: ['', [Validators.maxLength(100)]],
     telefono: ['', [Validators.maxLength(30)]],
-    email: ['', [Validators.required, Validators.email, Validators.maxLength(120)]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
     mensaje: ['', [Validators.maxLength(2000)]],
   });
 

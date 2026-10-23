@@ -1,109 +1,162 @@
-.contact {
-  --h: 773px;
-  background-image: url('/media/img/30f4b3_999bd101fde646e9a00d9a29a65f0226.jpg');
+.contact-section {
+  background: #fbfcfc;
 }
 
-.card {
-  left: 255px;
-  top: 10px;
-  width: 469px;
-  height: 335px;
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 5rem);
 }
 
-.hotspot {
-  position: absolute;
-  left: 335px;
-  width: 310px;
-  height: 24px;
+.contact-intro {
+  max-width: 54ch;
+  color: var(--color-muted);
 }
 
-.phone {
-  top: 220px;
+.contact-methods {
+  display: grid;
+  gap: 0.75rem;
+  margin-block: 1.5rem;
 }
 
-.mail {
-  top: 246px;
+.contact-method {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.25rem;
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
-.form {
-  position: absolute;
-  left: 264px;
-  top: 316px;
-  width: 452px;
-  height: 429px;
+.contact-method:hover {
+  border-color: var(--color-secondary);
 }
 
-.lbl {
-  position: absolute;
-  font-family: var(--font-title);
-  font-size: 14px;
-  color: var(--cream);
+.contact-method strong {
+  overflow-wrap: anywhere;
 }
 
-.req {
-  color: var(--cream);
+.method-label,
+.optional {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
-.field {
-  position: absolute;
-  height: 37px;
-  padding: 3px 10px;
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.form-heading h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.45rem;
+}
+
+.form-heading p {
+  margin: 0.3rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  color: var(--color-primary);
+  font-size: 0.925rem;
+  font-weight: 650;
+}
+
+.required {
+  color: var(--color-error);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #aab8be;
+  border-radius: var(--radius-small);
+  background: #fff;
+  color: var(--color-text);
+}
+
+.form-field textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--color-focus);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.form-field input.invalid,
+.form-field input[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.field-help {
+  color: var(--color-muted);
+  font-size: 0.825rem;
+}
+
+.field-error {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.submit-button {
+  justify-self: start;
   border: 0;
-  border-radius: 10px;
-  background: rgba(255, 241, 231, 0.26);
-  color: var(--gold);
-  font-family: var(--font-body);
-  font-size: 15px;
-  outline: none;
-}
-
-.field:focus {
-  box-shadow: inset 0 0 0 1px var(--cream);
-}
-
-.field.bad {
-  box-shadow: inset 0 0 0 1px #df3131;
-}
-
-.area {
-  height: 67px;
-  resize: none;
-  padding-top: 8px;
-}
-
-.send {
-  position: absolute;
-  left: 15px;
-  top: 356px;
-  width: 140px;
-  height: 36px;
-  border: 0;
-  border-radius: 0;
-  background: var(--gold);
-  color: var(--cream);
-  font-family: var(--font-title);
-  font-size: 14px;
   cursor: pointer;
 }
 
-.send:hover {
-  opacity: 0.85;
-}
-
-.send:disabled {
+.submit-button:disabled {
+  background: var(--color-disabled);
   cursor: progress;
 }
 
 .feedback {
-  position: absolute;
-  left: 15px;
-  top: 396px;
   margin: 0;
-  font-family: var(--font-title);
-  font-size: 14px;
-  color: var(--gold);
+  color: var(--color-success);
+  font-weight: 650;
 }
 
-.feedback.err {
-  color: #df3131;
+.feedback.error {
+  color: var(--color-error);
+}
+
+@media (max-width: 800px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
 }

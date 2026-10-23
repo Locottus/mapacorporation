@@ -18,13 +18,13 @@ describe('Header', () => {
   });
 
   it('muestra el logotipo enlazado al inicio', () => {
-    const logo = el.querySelector<HTMLAnchorElement>('a.logo');
+    const logo = el.querySelector<HTMLAnchorElement>('a.brand');
     expect(logo?.getAttribute('href')).toBe('/');
-    expect(logo?.querySelector('img')?.getAttribute('src')).toContain('30f4b3_15d9150129bb40ddb8d06fa212458c9f');
+    expect(logo?.querySelector('img')?.getAttribute('src')).toContain('mapa-logo.png');
   });
 
   it('renderiza las 7 opciones del menu en orden', () => {
-    const labels = Array.from(el.querySelectorAll('.menu a')).map((a) => a.textContent?.trim());
+    const labels = Array.from(el.querySelectorAll('.desktop-nav a')).map((a) => a.textContent?.trim());
     expect(labels).toEqual([
       'Inicio',
       'Acerca de',
@@ -46,5 +46,15 @@ describe('Header', () => {
     el.querySelector<HTMLAnchorElement>('#mobile-menu a')!.click();
     await fixture.whenStable();
     expect(el.querySelector('#mobile-menu')).toBeNull();
+  });
+
+  it('cierra el menu con Escape y devuelve el foco al botón', async () => {
+    const toggle = el.querySelector<HTMLButtonElement>('.menu-toggle')!;
+    toggle.click();
+    await fixture.whenStable();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    await fixture.whenStable();
+    expect(el.querySelector('#mobile-menu')).toBeNull();
+    expect(document.activeElement).toBe(toggle);
   });
 });

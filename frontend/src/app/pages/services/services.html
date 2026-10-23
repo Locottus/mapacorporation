@@ -1,15 +1,39 @@
-<h1 class="sr-only">Servicios</h1>
-
-<section class="strip lead">
-  <div class="stage">
-    <img class="abs card lead-card" [src]="media + first" alt="Servicio de asesoría migratoria 1" />
+<section class="page-intro">
+  <div class="container">
+    <p class="eyebrow">Nuestros servicios</p>
+    <h1 class="page-title">Acompañamiento para preparar tu proceso con más claridad.</h1>
+    <p class="lead">
+      Conoce las formas de orientación que MAPA ofrece para solicitudes de visa de Estados Unidos y
+      Canadá.
+    </p>
   </div>
 </section>
 
-@for (item of items; track item.img) {
-  <section class="strip item">
-    <div class="stage">
-      <img class="abs card item-card" [src]="media + item.img" [alt]="item.alt" loading="lazy" />
+<section class="section services-list">
+  <div class="container">
+    <div class="service-grid">
+      @for (item of items; track item.title; let i = $index) {
+        <article class="card service-card">
+          <span class="service-number" aria-hidden="true">0{{ i + 1 }}</span>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.description }}</p>
+          <a routerLink="/contact-4">Consultar sobre este servicio <span aria-hidden="true">→</span></a>
+        </article>
+      }
     </div>
-  </section>
-}
+    <p class="legal-note">
+      Los servicios brindan orientación y preparación. No constituyen asesoría jurídica ni
+      garantizan la aprobación de una solicitud.
+    </p>
+  </div>
+</section>
+
+<section class="service-cta">
+  <div class="container service-cta-inner">
+    <div>
+      <p class="eyebrow">¿Tienes dudas?</p>
+      <h2 class="section-title">Cuéntanos qué necesitas conocer.</h2>
+    </div>
+    <a class="button button-primary" routerLink="/contact-4">Solicitar orientación</a>
+  </div>
+</section>

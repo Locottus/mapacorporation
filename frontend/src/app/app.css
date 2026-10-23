@@ -3,8 +3,6 @@
   min-height: 100vh;
 }
 
-/* El contenido se pinta sobre el encabezado, igual que en Wix */
 main {
-  position: relative;
-  z-index: 1;
+  display: block;
 }

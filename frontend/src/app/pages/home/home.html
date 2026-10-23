@@ -1,51 +1,120 @@
-<section class="strip hero" aria-labelledby="home-title">
-  <div class="stage">
-    <h1 id="home-title" class="sr-only">Expertos en procesos migratorios</h1>
-    <img
-      class="abs info"
-      [src]="media + '30f4b3_3fc14255a97644a89559dcadb40a3703.png'"
-      alt="Trabajamos con la misión de facilitar los procesos migratorios para que las personas puedan cumplir sus sueños de viajar y conectar con nuevas oportunidades. Nos esforzamos por ser una empresa líder en asesoría migratoria, ofreciendo un servicio confiable, personalizado y profesional que brinde tranquilidad y confianza a nuestros clientes."
-    />
-    <img
-      class="abs experts"
-      [src]="media + '30f4b3_942f17a9f2554dc193ff387b0940c673.png'"
-      alt="Expertos en procesos migratorios"
-    />
-    <img
-      class="abs person"
-      [src]="media + '30f4b3_373df7185d20402ea5df7c4b8296306e.png'"
-      alt="Asesora de MAPA Asesorías Migratorias"
-    />
+<section class="home-hero">
+  <img class="hero-image" src="media/img/new-york-skyline.jpg" alt="Vista de los rascacielos de Manhattan en Nueva York" width="2200" height="1467" fetchpriority="high" />
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <p class="eyebrow">Desde Guatemala, hacia nuevas posibilidades</p>
+      <h1 class="page-title">MAPA <span>Asesorías Migratorias</span></h1>
+      <p class="lead">
+        Tu proceso migratorio, con claridad y acompañamiento. Te orientamos en tu solicitud de visa
+        para Estados Unidos o Canadá, paso a paso.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" routerLink="/contact-4">Solicita orientación</a>
+        <a class="button button-secondary" routerLink="/services-9">Conoce los servicios</a>
+      </div>
+      <p class="hero-disclaimer">Cada solicitud es distinta. No se garantizan resultados migratorios.</p>
+    </div>
+    <div class="hero-caption"><span>Un nuevo destino empieza con un primer paso.</span><span>Nueva York, Estados Unidos</span></div>
   </div>
 </section>
 
-<section class="strip tagline">
-  <div class="stage">
-    <img
-      class="abs tagline-img"
-      [src]="media + '30f4b3_ea244392ea944f18981c584d92f8c4d2.png'"
-      alt="Te acompañamos paso a paso en tu proceso migratorio, con confianza, claridad y experiencia."
-    />
+<div class="intro-strip">
+  <div class="container intro-strip-inner">
+    <p>Tu próximo capítulo <strong>empieza aquí.</strong></p>
+    <span>Visas para Estados Unidos y Canadá</span>
+    <a routerLink="/about-3">Conoce a MAPA <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<section class="section services-section" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">En qué podemos orientarte</p>
+      <h2 id="services-title" class="section-title">Apoyo para avanzar con más claridad</h2>
+      <p class="lead">
+        Conoce las opciones disponibles y elige el acompañamiento que mejor se adapte a tu consulta.
+      </p>
+    </div>
+    <div class="service-grid">
+      <article class="card service-card">
+        <span class="service-mark" aria-hidden="true">01</span>
+        <h3>Asesoría personalizada</h3>
+        <p>Orientación sobre el tipo de visa y los requisitos que corresponden a tu proceso.</p>
+        <a routerLink="/services-9" aria-label="Conocer la asesoría personalizada">Conocer más <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="card service-card">
+        <span class="service-mark" aria-hidden="true">02</span>
+        <h3>Revisión de documentos</h3>
+        <p>Revisión de la documentación para ayudarte a preparar tu solicitud con orden.</p>
+        <a routerLink="/services-9" aria-label="Conocer la revisión de documentos">Conocer más <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="card service-card">
+        <span class="service-mark" aria-hidden="true">03</span>
+        <h3>Preparación para entrevista</h3>
+        <p>Práctica y orientación para que llegues con mayor claridad a tu entrevista consular.</p>
+        <a routerLink="/services-9" aria-label="Conocer la preparación para entrevista">Conocer más <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <a class="text-link" routerLink="/services-9">Ver todos los servicios <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<section class="strip reviews" aria-labelledby="reviews-title">
-  <div class="stage">
-    <h2 id="reviews-title" class="sr-only">Testimonios de nuestros clientes</h2>
-    <img
-      class="abs highlights"
-      [src]="media + '30f4b3_3f9747d5a1a546dfbfc42b4f3715afee.png'"
-      alt="Testimonios de nuestros clientes. En MAPA, cada proceso es único y cada historia nos inspira. Conoce la experiencia de quienes confiaron en nosotros para alcanzar su objetivo migratorio."
-    />
-    @for (review of reviews; track review.img; let i = $index) {
-      <img
-        class="abs review"
-        [style.left.px]="left(i)"
-        [style.top.px]="top(i)"
-        [src]="media + review.img"
-        [alt]="review.text + ' — ' + review.author"
-        loading="lazy"
-      />
-    }
+<section class="section process-section" aria-labelledby="process-title">
+  <div class="container process-layout">
+    <div class="section-heading">
+      <p class="eyebrow">Un camino más claro</p>
+      <h2 id="process-title" class="section-title">¿Cómo empezar?</h2>
+      <p class="lead">Cuéntanos qué necesitas y te explicaremos las opciones de orientación.</p>
+      <a class="button button-primary" routerLink="/contact-4">Contactar con MAPA</a>
+    </div>
+    <ol class="process-list">
+      <li><span>1</span><div><h3>Comparte tu consulta</h3><p>Escríbenos por el formulario, teléfono o correo.</p></div></li>
+      <li><span>2</span><div><h3>Conoce tus opciones</h3><p>Revisaremos tu consulta y te explicaremos cómo podemos orientarte.</p></div></li>
+      <li><span>3</span><div><h3>Avanza paso a paso</h3><p>Si decides continuar, recibirás acompañamiento según el servicio acordado.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="home-testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="home-testimonials-heading">
+      <p class="eyebrow">Experiencias</p>
+      <h2 id="testimonials-title" class="section-title">Cada proceso tiene una historia.</h2>
+      <p>Experiencias compartidas por nuestros clientes. Los resultados de cada solicitud pueden variar.</p>
+    </div>
+    <div class="review-grid">
+      @for (review of reviews.slice(0, 3); track review.author) {
+        <article class="card review-card">
+          <span class="review-quote" aria-hidden="true">“</span>
+          <blockquote>{{ review.text }}</blockquote>
+          <footer>
+            <strong>{{ review.author }}</strong>
+            <span>{{ review.date }}</span>
+          </footer>
+        </article>
+      }
+    </div>
+    <details class="more-reviews">
+      <summary>Más experiencias de nuestros clientes</summary>
+      <div class="review-grid">
+        @for (review of reviews.slice(3); track review.author) {
+          <article class="card review-card">
+            <blockquote>{{ review.text }}</blockquote>
+            <footer><strong>{{ review.author }}</strong><span>{{ review.date }}</span></footer>
+          </article>
+        }
+      </div>
+    </details>
+    <a class="button button-secondary testimonials-link" routerLink="/testimonios">Ver testimonios en video</a>
+  </div>
+</section>
+
+<section class="home-contact">
+  <div class="container home-contact-inner">
+    <div>
+      <p class="eyebrow">Estamos para escucharte</p>
+      <h2 class="section-title">¿Tienes preguntas sobre tu proceso?</h2>
+    </div>
+    <a class="button button-secondary" routerLink="/contact-4">Ponte en contacto</a>
   </div>
 </section>

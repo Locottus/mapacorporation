@@ -1,11 +1,46 @@
-.schedule {
-  --h: 250px;
-  background: var(--ink);
+.schedule-section {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  background: var(--color-background);
 }
 
-.schedule-img {
-  left: 113px;
-  top: -65px;
-  width: 754px;
-  height: 380px;
+.schedule-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.schedule-times {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.schedule-times div {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  background: var(--color-surface);
+}
+
+.schedule-times dt {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.schedule-times dd {
+  margin: 0;
+  color: var(--color-muted);
+  text-align: right;
+}
+
+@media (max-width: 650px) {
+  .schedule-layout {
+    grid-template-columns: 1fr;
+  }
 }

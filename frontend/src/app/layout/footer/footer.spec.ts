@@ -1,18 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { Footer } from './footer';
 
 describe('Footer', () => {
   let fixture: ComponentFixture<Footer>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({ imports: [Footer] }).compileComponents();
+    await TestBed.configureTestingModule({ imports: [Footer], providers: [provideRouter([])] }).compileComponents();
     fixture = TestBed.createComponent(Footer);
     await fixture.whenStable();
   });
 
-  it('muestra el texto legal del sitio original', () => {
-    const text = (fixture.nativeElement as HTMLElement).querySelector('h2')?.textContent ?? '';
-    expect(text).toContain('© 2025 MAPA Asesorías Migratorias | Empresa líder en procesos migratorios.');
-    expect(text).toContain('Todos los derechos reservados.');
+  it('muestra los enlaces de contacto y el aviso de alcance del servicio', () => {
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('a[href^="tel:"]')).toBeTruthy();
+    expect(el.querySelector('a[href^="mailto:"]')).toBeTruthy();
+    expect(el.textContent).toContain('no garantiza resultados migratorios');
+    expect(el.textContent).toContain('Todos los derechos reservados.');
   });
 });

@@ -1,55 +1,69 @@
-<section class="strip usa">
-  <div class="band">
-    <header class="bar">
-      <h1 class="channel-title">
-        <span class="dots" aria-hidden="true">⋮</span>
-        {{ channel()?.title ?? 'Descubramos USA' }}
-      </h1>
-      <label class="sr-only" for="usa-cat">Categoría</label>
-      <select id="usa-cat" class="cat" [value]="category()" (change)="onCategory($event)">
+<section class="page-intro">
+  <div class="container discover-heading">
+    <div>
+      <p class="eyebrow">Recursos informativos</p>
+      <h1 class="page-title">{{ channel()?.title ?? 'Descubramos USA' }}</h1>
+      <p class="lead">Videos disponibles para conocer más sobre Estados Unidos.</p>
+    </div>
+    <div class="category-field">
+      <label for="usa-cat">Filtrar por categoría</label>
+      <select id="usa-cat" [value]="category()" (change)="onCategory($event)">
         @for (cat of categories(); track cat) {
-          <option [value]="cat">{{ cat }}</option>
+          <option [value]="cat">{{ cat === 'All Categories' ? 'Todas las categorías' : cat }}</option>
         }
       </select>
-    </header>
-
-    <div class="carousel">
-      <button type="button" class="arrow prev" aria-label="Anterior" (click)="scroll(-1)">‹</button>
-      <ul class="track" #track>
-        @for (video of filtered(); track video.id) {
-          <li class="card">
-            <button type="button" class="thumb" (click)="open(video)" [attr.aria-label]="'Reproducir ' + video.title"
-              [style.background-image]="'url(' + video.poster + ')'">
-              <span class="circle" aria-hidden="true">
-                <svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" /></svg>
-              </span>
-              <span class="dur">{{ video.duration }}</span>
-            </button>
-            <h2 class="title">{{ video.title }}</h2>
-            <p class="desc">{{ video.description }}</p>
-          </li>
-        } @empty {
-          @if (error()) {
-            <li class="empty">No se pudieron cargar los videos. ¿Está levantado el backend?</li>
-          }
-        }
-      </ul>
-      <button type="button" class="arrow next" aria-label="Siguiente" (click)="scroll(1)">›</button>
     </div>
+  </div>
+</section>
+
+<section class="section discover-section">
+  <div class="container">
+    @if (filtered().length) {
+      <div class="carousel">
+        <button type="button" class="carousel-arrow previous" aria-label="Desplazar videos hacia la izquierda" (click)="scroll(-1)">‹</button>
+        <ul class="video-track" #track aria-label="Videos informativos">
+          @for (video of filtered(); track video.id) {
+            <li class="resource-card">
+              <button
+                type="button"
+                class="resource-thumb"
+                (click)="open(video)"
+                [attr.aria-label]="'Reproducir ' + video.title"
+                [style.background-image]="'url(' + video.poster + ')'"
+              >
+                <span class="play-icon" aria-hidden="true">▶</span>
+                <span class="duration">{{ video.duration }}</span>
+              </button>
+              <div class="resource-content">
+                <h2>{{ video.title }}</h2>
+                <p>{{ video.description }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+        <button type="button" class="carousel-arrow next" aria-label="Desplazar videos hacia la derecha" (click)="scroll(1)">›</button>
+      </div>
+    } @else if (error()) {
+      <p class="empty-state" role="alert">No se pudieron cargar los videos. Inténtalo de nuevo más tarde.</p>
+    } @else if (!loaded()) {
+      <p class="empty-state" role="status">Cargando recursos…</p>
+    } @else {
+      <p class="empty-state">No hay videos disponibles en esta categoría.</p>
+    }
   </div>
 </section>
 
 <app-schedule />
 
 @if (active(); as video) {
-  <div class="modal" role="dialog" aria-modal="true" [attr.aria-label]="video.title" (click)="close()">
-    <div class="dialog" (click)="$event.stopPropagation()">
-      <button type="button" class="x" aria-label="Cerrar" (click)="close()">×</button>
-      <div class="frame">
+  <div class="modal" role="presentation" (click)="close()">
+    <section class="dialog" role="dialog" aria-modal="true" [attr.aria-label]="video.title" (click)="$event.stopPropagation()">
+      <button type="button" class="close-button" aria-label="Cerrar video" (click)="close()">×</button>
+      <div class="modal-frame">
         <app-video-player [video]="video" [originalUrl]="channel()?.originalUrl ?? 'https://www.mapacorporation.com/'" />
       </div>
-      <h2 class="modal-title">{{ video.title }}</h2>
-      <p class="modal-desc">{{ video.description }}</p>
-    </div>
+      <h2>{{ video.title }}</h2>
+      <p>{{ video.description }}</p>
+    </section>
   </div>
 }

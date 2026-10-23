@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-services',
+  imports: [RouterLink],
   templateUrl: './services.html',
   styleUrl: './services.css',
 })
 export class Services {
-  protected readonly media = 'media/img/';
-
-  protected readonly first = '30f4b3_9951b6de185c45108ff5f0bfe4df37db.png';
-
   protected readonly items = [
-    { img: '30f4b3_b54ee1b46a7b45a2bd9ea5a50a874bdc.png', alt: 'Servicio de asesoría migratoria 2' },
-    { img: '30f4b3_fc84c442ed974d229b07c1af91eeb9d4.png', alt: 'Servicio de asesoría migratoria 3' },
-    { img: '30f4b3_f7ad3e5399444318a661ca66e57c3065.png', alt: 'Servicio de asesoría migratoria 4' },
-    { img: '30f4b3_f7e5bb372adb49c3970812df85be2a26.png', alt: 'Servicio de asesoría migratoria 5' },
+    {
+      title: 'Asesoría personalizada',
+      description: 'Orientación sobre el tipo de visa y los requisitos relacionados con tu consulta.',
+    },
+    {
+      title: 'Revisión de documentos',
+      description: 'Revisión y organización de documentos para preparar la solicitud.',
+    },
+    {
+      title: 'Preparación para entrevistas consulares',
+      description: 'Práctica y orientación para responder con mayor seguridad y claridad.',
+    },
+    {
+      title: 'Seguimiento del proceso',
+      description: 'Acompañamiento e información durante las etapas del proceso acordado.',
+    },
   ];
 }

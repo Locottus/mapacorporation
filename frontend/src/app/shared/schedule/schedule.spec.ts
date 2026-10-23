@@ -6,7 +6,9 @@ describe('Schedule', () => {
     await TestBed.configureTestingModule({ imports: [Schedule] }).compileComponents();
     const fixture = TestBed.createComponent(Schedule);
     await fixture.whenStable();
-    const img = (fixture.nativeElement as HTMLElement).querySelector('img')!;
-    expect(img.alt).toContain('Horario de atención');
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('#schedule-title')?.textContent).toContain('Nuestro horario');
+    expect(el.textContent).toContain('8:00 a 18:00');
+    expect(el.textContent).toContain('8:00 a 13:00');
   });
 });

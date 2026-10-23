@@ -1,51 +1,116 @@
-<h1 class="sr-only">Contáctanos</h1>
+<section class="page-intro">
+  <div class="container">
+    <p class="eyebrow">Contacto</p>
+    <h1 class="page-title">Hablemos sobre tu consulta.</h1>
+    <p class="lead">Compártenos tus datos de contacto y te responderemos para orientarte.</p>
+  </div>
+</section>
 
-<section class="strip contact">
-  <div class="stage">
-    <img
-      class="abs card"
-      src="media/img/30f4b3_900bbf9bab1649c29a1eb28e76792c78.png"
-      alt="Contáctanos. Teléfono +502 5715 2797. Correo marketing.consultores@mapaasesorias.com"
-    />
-    <a class="hotspot phone" href="tel:+50257152797" aria-label="Llamar al +502 5715 2797"></a>
-    <a
-      class="hotspot mail"
-      href="mailto:marketing.consultores@mapaasesorias.com"
-      aria-label="Escribir a marketing.consultores@mapaasesorias.com"
-    ></a>
+<section class="section contact-section">
+  <div class="container contact-layout">
+    <div class="contact-details">
+      <p class="eyebrow">Estamos para ayudarte</p>
+      <h2 class="section-title">Elige cómo quieres comunicarte.</h2>
+      <p class="contact-intro">
+        Puedes enviarnos un mensaje, llamarnos o escribirnos por correo. No incluyas números de
+        documentos, información financiera ni otros datos sensibles en este formulario.
+      </p>
+      <div class="contact-methods">
+        <a class="card contact-method" href="tel:+50257152797">
+          <span class="method-label">Teléfono</span>
+          <strong>+502 5715 2797</strong>
+        </a>
+        <a class="card contact-method" href="mailto:marketing.consultores@mapaasesorias.com">
+          <span class="method-label">Correo electrónico</span>
+          <strong>marketing.consultores@mapaasesorias.com</strong>
+        </a>
+      </div>
+      <p class="legal-note">
+        La información de este sitio es general y no constituye asesoría jurídica ni garantiza
+        resultados migratorios.
+      </p>
+    </div>
 
-    <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
-      <label class="lbl" style="left: 15px; top: 20px" for="nombre">Nombre</label>
-      <input id="nombre" class="field" style="left: 15px; top: 43px; width: 200px" formControlName="nombre" autocomplete="given-name" />
+    <form class="card contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="form-heading">
+        <h2>Envíanos un mensaje</h2>
+        <p>El correo electrónico es el único dato obligatorio.</p>
+      </div>
 
-      <label class="lbl" style="left: 235px; top: 20px" for="apellido">Apellido</label>
-      <input id="apellido" class="field" style="left: 235px; top: 43px; width: 200px" formControlName="apellido" autocomplete="family-name" />
+      <div class="form-row">
+        <div class="form-field">
+          <label for="nombre">Nombre <span class="optional">(opcional)</span></label>
+          <input
+            id="nombre"
+            type="text"
+            formControlName="nombre"
+            autocomplete="given-name"
+            maxlength="100"
+          />
+        </div>
+        <div class="form-field">
+          <label for="apellido">Apellido <span class="optional">(opcional)</span></label>
+          <input
+            id="apellido"
+            type="text"
+            formControlName="apellido"
+            autocomplete="family-name"
+            maxlength="100"
+          />
+        </div>
+      </div>
 
-      <label class="lbl" style="left: 15px; top: 92px" for="telefono">Teléfono</label>
-      <input id="telefono" class="field" style="left: 15px; top: 116px; width: 417px" type="tel" formControlName="telefono" autocomplete="tel" />
+      <div class="form-field">
+        <label for="telefono">Teléfono <span class="optional">(opcional)</span></label>
+        <input
+          id="telefono"
+          type="tel"
+          formControlName="telefono"
+          autocomplete="tel"
+          maxlength="30"
+          inputmode="tel"
+        />
+      </div>
 
-      <label class="lbl" style="left: 15px; top: 164px" for="email">Email <span class="req">*</span></label>
-      <input
-        id="email"
-        class="field"
-        style="left: 15px; top: 187px; width: 417px"
-        type="email"
-        formControlName="email"
-        autocomplete="email"
-        required
-        [class.bad]="invalid('email')"
-        [attr.aria-invalid]="invalid('email')"
-      />
+      <div class="form-field">
+        <label for="email">Correo electrónico <span aria-hidden="true" class="required">*</span></label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+          [attr.aria-describedby]="invalid('email') ? 'email-help email-error' : 'email-help'"
+          [class.invalid]="invalid('email')"
+          [attr.aria-invalid]="invalid('email')"
+        />
+        <span id="email-help" class="field-help">Necesario para poder responderte.</span>
+        @if (invalid('email')) {
+          <span id="email-error" class="field-error">Ingresa un correo electrónico válido.</span>
+        }
+      </div>
 
-      <label class="lbl" style="left: 15px; top: 247px" for="mensaje">Mensaje</label>
-      <textarea id="mensaje" class="field area" style="left: 15px; top: 270px; width: 417px" formControlName="mensaje"></textarea>
+      <div class="form-field">
+        <label for="mensaje">Mensaje <span class="optional">(opcional)</span></label>
+        <textarea
+          id="mensaje"
+          rows="5"
+          formControlName="mensaje"
+          maxlength="2000"
+          aria-describedby="message-help"
+        ></textarea>
+        <span id="message-help" class="field-help">Máximo 2,000 caracteres. No envíes documentos personales.</span>
+      </div>
 
-      <button class="send" type="submit" [disabled]="state() === 'sending'">
-        {{ state() === 'sending' ? 'Enviando…' : 'Enviar' }}
+      <button class="button button-primary submit-button" type="submit" [disabled]="state() === 'sending'">
+        {{ state() === 'sending' ? 'Enviando…' : 'Enviar mensaje' }}
       </button>
 
       @if (state() === 'sent' || state() === 'error') {
-        <p class="feedback" [class.err]="state() === 'error'" role="status">{{ feedback() }}</p>
+        <p class="feedback" [class.error]="state() === 'error'" [attr.role]="state() === 'error' ? 'alert' : 'status'">
+          {{ feedback() }}
+        </p>
       }
     </form>
   </div>

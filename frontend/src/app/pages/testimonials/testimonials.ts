@@ -20,6 +20,7 @@ export class Testimonials implements OnInit {
   readonly selectedId = signal<string | null>(null);
   readonly playing = signal(false);
   readonly error = signal(false);
+  readonly loaded = signal(false);
 
   readonly selected = computed(() => {
     const list = this.videos();
@@ -38,8 +39,14 @@ export class Testimonials implements OnInit {
       error: () => this.error.set(true),
     });
     this.api.getVideos({ channel: TESTIMONIALS_CHANNEL }).subscribe({
-      next: (v) => this.videos.set(v),
-      error: () => this.error.set(true),
+      next: (v) => {
+        this.videos.set(v);
+        this.loaded.set(true);
+      },
+      error: () => {
+        this.error.set(true);
+        this.loaded.set(true);
+      },
     });
   }
 

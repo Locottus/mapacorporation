@@ -1,8 +1,28 @@
-<footer class="site-footer strip">
-  <div class="stage">
-    <h2 class="copy">
-      <span>© {{ year }} MAPA Asesorías Migratorias | Empresa líder en procesos migratorios.</span>
-      <span>Todos los derechos reservados.</span>
-    </h2>
+<footer class="site-footer">
+  <div class="footer-main container">
+    <div class="footer-brand">
+      <a routerLink="/" class="footer-name">MAPA</a>
+      <p>Asesorías Migratorias</p>
+      <p class="footer-note">
+        La orientación ofrecida no garantiza resultados migratorios ni sustituye asesoría jurídica.
+      </p>
+    </div>
+
+    <nav class="footer-links" aria-label="Enlaces del sitio">
+      <h2>Explora</h2>
+      @for (item of menu; track item.path) {
+        <a [routerLink]="item.path">{{ item.label }}</a>
+      }
+    </nav>
+
+    <div class="footer-contact">
+      <h2>Contacto</h2>
+      <a href="tel:+50257152797">+502 5715 2797</a>
+      <a href="mailto:marketing.consultores@mapaasesorias.com">marketing.consultores@mapaasesorias.com</a>
+      <p>Lunes a viernes, 8:00 a 18:00<br />Sábados, 8:00 a 13:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">© {{ year }} MAPA Asesorías Migratorias. Todos los derechos reservados.</div>
   </div>
 </footer>

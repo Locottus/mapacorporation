@@ -48,22 +48,22 @@ describe('Testimonials', () => {
 
   afterEach(() => http.verify());
 
-  it('muestra el primer video con el boton Play Video', () => {
+  it('muestra el primer video y la lista de reproducción', () => {
     expect(el.querySelector('.video-title')?.textContent).toContain('Primer testimonio');
-    expect(el.querySelector('.play')?.textContent).toContain('Play Video');
-    expect(el.querySelectorAll('.item').length).toBe(2);
+    expect(el.querySelector('.play-button')?.textContent).toContain('Reproducir video');
+    expect(el.querySelectorAll('.video-item').length).toBe(2);
   });
 
   it('filtra por busqueda', async () => {
     fixture.componentInstance.query.set('segundo');
     await fixture.whenStable();
-    expect(el.querySelectorAll('.item').length).toBe(1);
+    expect(el.querySelectorAll('.video-item').length).toBe(1);
   });
 
   it('al elegir un video lo reproduce y marca Now Playing', async () => {
-    (el.querySelectorAll<HTMLButtonElement>('.item')[1]).click();
+    (el.querySelectorAll<HTMLButtonElement>('.video-item')[1]).click();
     await fixture.whenStable();
     expect(el.querySelector('app-video-player')).toBeTruthy();
-    expect(el.querySelector('.now')?.textContent).toContain('Now Playing');
+    expect(el.querySelector('.video-item[aria-current="true"]')).toBeTruthy();
   });
 });

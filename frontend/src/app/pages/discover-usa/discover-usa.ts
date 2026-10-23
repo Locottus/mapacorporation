@@ -23,6 +23,7 @@ export class DiscoverUsa implements OnInit {
   readonly category = signal(ALL);
   readonly active = signal<Video | null>(null);
   readonly error = signal(false);
+  readonly loaded = signal(false);
 
   readonly categories = computed(() => [ALL, ...(this.channel()?.categories ?? [])]);
 
@@ -38,8 +39,14 @@ export class DiscoverUsa implements OnInit {
       error: () => this.error.set(true),
     });
     this.api.getVideos({ channel: USA_CHANNEL }).subscribe({
-      next: (v) => this.videos.set(v),
-      error: () => this.error.set(true),
+      next: (v) => {
+        this.videos.set(v);
+        this.loaded.set(true);
+      },
+      error: () => {
+        this.error.set(true);
+        this.loaded.set(true);
+      },
     });
   }
 

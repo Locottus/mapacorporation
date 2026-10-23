@@ -52,6 +52,6 @@ describe('Contact', () => {
     fixture.componentInstance.submit();
     http.expectOne('/api/contact').flush({ ok: false }, { status: 500, statusText: 'err' });
     await fixture.whenStable();
-    expect(el.querySelector('.feedback.err')).toBeTruthy();
+    expect(el.querySelector('.feedback.error')).toBeTruthy();
   });
 });
