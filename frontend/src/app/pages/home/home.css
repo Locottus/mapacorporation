@@ -1,105 +1,143 @@
 .home-hero {
   position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 82% 35%, rgb(36 124 120 / 15%), transparent 34%),
-    radial-gradient(ellipse at 15% 100%, rgb(216 164 91 / 10%), transparent 35%),
-    var(--color-background);
+  isolation: isolate;
+  background: #183e36;
+  color: #fff;
 }
 
-.home-hero::after {
+.hero-image {
   position: absolute;
-  top: -13rem;
-  right: -10rem;
-  width: min(42vw, 540px);
-  aspect-ratio: 1;
-  border: 1px solid rgb(36 124 120 / 9%);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 34px rgb(36 124 120 / 3%),
-    0 0 0 72px rgb(36 124 120 / 2%);
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.home-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(12 35 30 / 91%), rgb(12 35 30 / 65%) 45%, rgb(12 35 30 / 8%));
   content: "";
-  pointer-events: none;
-  animation: ambient-arrive 900ms ease-out both;
 }
 
 .hero-layout {
-  position: relative;
-  z-index: 1;
   display: flex;
-  min-height: 500px;
-  align-items: center;
+  min-height: min(670px, 76svh);
+  flex-direction: column;
   justify-content: center;
-  padding-block: 4rem;
+  padding-block: 3rem 1.5rem;
 }
 
 .hero-copy {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 880px);
-  text-align: center;
+  max-width: 640px;
+  margin-block: auto;
+  padding-block: 1.5rem 3rem;
   animation: enter-up 650ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
 .hero-copy .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
   margin-bottom: 1rem;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid rgb(36 124 120 / 18%);
-  border-radius: 999px;
-  background: rgb(255 255 255 / 65%);
-}
-
-.hero-copy .eyebrow::before {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-secondary);
-  box-shadow: 0 0 0 4px rgb(36 124 120 / 12%);
-  content: "";
+  color: #c7e4d5;
 }
 
 .hero-copy .page-title span {
-  color: var(--color-secondary);
+  display: block;
+  max-width: 13ch;
+  margin-top: 0.5rem;
+  font-size: 3.5rem;
+  font-style: italic;
 }
 
 .hero-copy .page-title {
-  max-width: 21ch;
-  margin-inline: auto;
+  color: #fff;
+  font-size: 5.25rem;
+  line-height: 1.03;
 }
 
 .hero-copy .lead {
-  max-width: 60ch;
-  margin-inline: auto;
+  max-width: 47ch;
+  color: #eef4ef;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: 0.8rem;
   margin-top: 1.75rem;
 }
 
-.hero-actions .button {
-  animation: enter-up 520ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
-}
-
-.hero-actions .button:first-child {
-  animation-delay: 160ms;
-}
-
-.hero-actions .button:last-child {
-  animation-delay: 250ms;
-}
-
 .hero-disclaimer {
-  margin: 1.1rem auto 0;
+  max-width: 54ch;
+  margin: 1rem 0 0;
+  color: #dce8e0;
+  font-size: 0.75rem;
+}
+
+.hero-actions .button-primary {
+  background: var(--color-accent);
+  color: #203b32;
+  box-shadow: none;
+}
+
+.hero-actions .button-primary:hover {
+  background: #ffc3af;
+}
+
+.hero-actions .button-secondary {
+  border-color: rgb(255 255 255 / 65%);
+  color: #fff;
+}
+
+.hero-actions .button-secondary:hover {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+.hero-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(255 255 255 / 30%);
+  font-size: 0.75rem;
+}
+
+.intro-strip {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-background);
+}
+
+.intro-strip-inner {
+  display: flex;
+  min-height: 96px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.intro-strip p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.intro-strip-inner > span {
   color: var(--color-muted);
   font-size: 0.875rem;
+}
+
+.intro-strip a,
+.service-card a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .service-grid {
@@ -109,29 +147,47 @@
 }
 
 .service-card {
-  min-height: 230px;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  border-top: 3px solid #26735f;
+  box-shadow: none;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.service-card:hover,
-.review-card:hover {
+.service-card:nth-child(2) {
+  border-top-color: #d1846c;
+  background: #fff9f6;
+}
+
+.service-card:nth-child(3) {
+  border-top-color: #899951;
+  background: #fafbf5;
+}
+
+.service-card:hover {
   transform: translateY(-4px);
   border-color: #b9d2cf;
   box-shadow: 0 18px 38px rgb(23 59 87 / 12%);
 }
 
 .service-mark {
-  display: inline-flex;
-  width: 42px;
-  height: 42px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #e7f1ef;
   color: var(--color-secondary);
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+}
+
+.service-card a {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.service-card p {
+  padding-bottom: 1.5rem;
 }
 
 .service-card h3,
@@ -185,15 +241,6 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  animation: enter-up 520ms ease-out both;
-}
-
-.process-list li:nth-child(2) {
-  animation-delay: 90ms;
-}
-
-.process-list li:nth-child(3) {
-  animation-delay: 180ms;
 }
 
 .process-list li > span {
@@ -214,12 +261,13 @@
 }
 
 .home-contact {
-  padding-block: 3rem;
+  padding-block: 3.5rem;
+  background: #f8e5dc;
 }
 
 .home-testimonials {
-  padding-block: 3rem;
-  background: #f0f7f6;
+  padding-block: 5rem;
+  background: #fff;
 }
 
 .home-testimonials-heading {
@@ -234,7 +282,7 @@
 
 .review-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -243,13 +291,8 @@
   min-height: 180px;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.25rem;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-  animation: enter-up 520ms ease-out both;
-}
-
-.review-card:nth-child(2n) {
-  animation-delay: 60ms;
+  padding: 1.75rem;
+  box-shadow: none;
 }
 
 .review-card blockquote {
@@ -263,6 +306,34 @@
   gap: 0.1rem;
   color: var(--color-primary);
   font-size: 0.875rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+
+.review-quote {
+  height: 48px;
+  color: var(--color-secondary);
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.more-reviews {
+  margin-top: 1.5rem;
+}
+
+.more-reviews summary {
+  width: fit-content;
+  min-height: 44px;
+  padding-block: 0.65rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.more-reviews[open] .review-grid {
+  margin-top: 1rem;
 }
 
 .review-card footer span {
@@ -286,8 +357,12 @@
 
 @media (max-width: 760px) {
   .hero-layout {
-    min-height: auto;
-    padding-block: 4rem;
+    min-height: 0;
+    padding-block: 2rem 1rem;
+  }
+
+  .intro-strip-inner > span {
+    display: none;
   }
 
   .service-grid,
@@ -302,6 +377,59 @@
 }
 
 @media (max-width: 600px) {
+  .home-hero::before {
+    background: rgb(12 35 30 / 72%);
+  }
+
+  .hero-image {
+    object-position: 62% center;
+  }
+
+  .hero-copy {
+    padding-block: 0.5rem 2rem;
+  }
+
+  .hero-copy .eyebrow {
+    max-width: 30ch;
+    font-size: 0.7rem;
+  }
+
+  .hero-copy .page-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-copy .page-title span {
+    font-size: 2.5rem;
+  }
+
+  .hero-copy .lead {
+    font-size: 1rem;
+  }
+
+  .hero-caption span:first-child {
+    display: none;
+  }
+
+  .intro-strip-inner {
+    min-height: 90px;
+    gap: 1rem;
+  }
+
+  .intro-strip p {
+    max-width: 17ch;
+    font-size: 0.875rem;
+  }
+
+  .intro-strip a {
+    flex-shrink: 0;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+  }
+
+  .home-testimonials {
+    padding-block: 3.5rem;
+  }
+
   .hero-actions,
   .home-contact-inner {
     align-items: stretch;
@@ -321,24 +449,8 @@
   }
 }
 
-@keyframes ambient-arrive {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .home-hero::after,
-  .hero-copy,
-  .hero-actions .button,
-  .process-list li,
-  .review-card {
+  .hero-copy {
     animation: none;
   }
 }

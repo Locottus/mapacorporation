@@ -15,6 +15,7 @@
           [routerLink]="item.path"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
+          [class.contact-link]="item.path === '/contact-4'"
           ariaCurrentWhenActive="page"
           >{{ item.label }}</a
         >
